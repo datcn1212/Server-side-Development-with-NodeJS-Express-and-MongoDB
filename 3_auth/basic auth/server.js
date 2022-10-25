@@ -1,14 +1,14 @@
 var express = require('express');
-var morgan = require('morgan');
+// var morgan = require('morgan');
 
 var hostname = 'localhost';
 var port = 3000;
 
 var app = express();
 
-app.use(morgan('dev'));
+// app.use(morgan('dev'));
 
-function auth (req, res, next) {
+function auth(req, res, next) {
     console.log(req.headers);
     var authHeader = req.headers.authorization;
     if (!authHeader) {
@@ -32,14 +32,14 @@ function auth (req, res, next) {
 
 app.use(auth);
 
-app.use(function(err,req,res,next) {
-            res.writeHead(err.status || 500, {
-            'WWW-Authenticate': 'Basic',
-            'Content-Type': 'text/plain'
-        });
-        res.end(err.message);
+app.use(function (err, req, res, next) {
+    res.writeHead(err.status || 500, {
+        'WWW-Authenticate': 'Basic',
+        'Content-Type': 'text/plain'
+    });
+    res.end(err.message);
 });
 
-app.listen(port, hostname, function(){
-  console.log(`Server running at http://${hostname}:${port}/`);
+app.listen(port, hostname, function () {
+    console.log(`Server running at http://${hostname}:${port}/`);
 });
