@@ -1,5 +1,5 @@
-var express = require('express');
-var promoRouter = express.Router();
+const express = require('express');
+const promoRouter = express.Router();
 
 promoRouter.route('/')
         .all(function (req, res, next) {

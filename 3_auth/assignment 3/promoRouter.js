@@ -1,11 +1,11 @@
-var express = require('express');
-var promotionRouter  = express.Router();
+const express = require('express');
+const promotionRouter  = express.Router();
 
-var Verify = require('./verify');
+const Verify = require('./verify');
 
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-var promotions = require('../models/promotions');
+const promotions = require('../models/promotions');
 
 promotionRouter.route('/')
 .get(Verify.verifyOrdinaryUser, function(req,res,next){
@@ -23,7 +23,7 @@ promotionRouter.route('/')
     promotions.create(req.body, function (err, promotion) {
         if (err) throw err;
         console.log('promotion created!');
-        var id = promotion._id;
+        const id = promotion._id;
 
         res.writeHead(200, {
             'Content-Type': 'text/plain'

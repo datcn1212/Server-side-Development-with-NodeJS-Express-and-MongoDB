@@ -1,18 +1,18 @@
-var mongoose = require('mongoose'),
+const mongoose = require('mongoose'),
     express = require('express'),
     assert = require('assert'),
     logger = require('morgan'),
     bodyParser = require('body-parser'),
     path = require('path');
 
-var Dishes = require('./models/dishes');
-var Promotions = require('./models/promotions');
-var Leadership = require('./models/leadership');
+const Dishes = require('./models/dishes');
+const Promotions = require('./models/promotions');
+const Leadership = require('./models/leadership');
 
 // Connection URL
-var url = 'mongodb://localhost:27017/conFusion';
+const url = 'mongodb://localhost:27017/conFusion';
 mongoose.connect(url);
-var db = mongoose.connection;
+const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function () {
     // we're connected!
@@ -20,11 +20,11 @@ db.once('open', function () {
 });
 
 
-var dishRouter = require('./routes/dishRouter');
-var leaderRouter = require('./leaderRouter');
-var promoRouter = require('./promoRouter');
+const dishRouter = require('./routes/dishRouter');
+const leaderRouter = require('./leaderRouter');
+const promoRouter = require('./promoRouter');
 
-var app = express();
+const app = express();
 
 app.set('view engine', 'hbs');
 
@@ -40,7 +40,7 @@ app.use('/promotions', promoRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-    var err = new Error('Not Found');
+    const err = new Error('Not Found');
     err.status = 404;
     next(err);
 });

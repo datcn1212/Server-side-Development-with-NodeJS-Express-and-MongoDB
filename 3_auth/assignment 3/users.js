@@ -1,8 +1,8 @@
-var express = require('express');
-var router = express.Router();
-var passport = require('passport');
-var User = require('../models/user');
-var Verify = require('./verify');
+const express = require('express');
+const router = express.Router();
+const passport = require('passport');
+const User = require('../models/user');
+const Verify = require('./verify');
 
 /* GET users listing. */
 router.get('/', Verify.verifyOrdinaryUser, Verify.verifyAdmin, function(req, res, next) {
@@ -43,7 +43,7 @@ router.post('/login', function(req, res, next) {
         });
       }
         
-      var token = Verify.getToken(user);
+      const token = Verify.getToken(user);
               res.status(200).json({
         status: 'Login successful!',
         success: true,

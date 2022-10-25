@@ -1,12 +1,12 @@
-var express = require('express');
-var morgan = require('morgan');
-var session = require('express-session');
-var FileStore = require('session-file-store')(session);
+const express = require('express');
+const morgan = require('morgan');
+const session = require('express-session');
+const FileStore = require('session-file-store')(session);
 
-var hostname = 'localhost';
-var port = 3000;
+const hostname = 'localhost';
+const port = 3000;
 
-var app = express();
+const app = express();
 
 app.use(morgan('dev'));
 app.use(session({
@@ -20,21 +20,21 @@ app.use(session({
 function auth (req, res, next) {
     console.log(req.headers);
     if (!req.session.user) {
-        var authHeader = req.headers.authorization;
+        const authHeader = req.headers.authorization;
         if (!authHeader) {
-            var err = new Error('You are not authenticated!');
+            const err = new Error('You are not authenticated!');
             err.status = 401;
             next(err);
             return;
         }   
-        var auth = new Buffer(authHeader.split(' ')[1], 'base64').toString().split(':');
-        var user = auth[0];
-        var pass = auth[1];
+        const auth = new Buffer(authHeader.split(' ')[1], 'base64').toString().split(':');
+        const user = auth[0];
+        const pass = auth[1];
         if (user == 'admin' && pass == 'password') {
             req.session.user = 'admin';
             next(); // authorized
         } else {
-            var err = new Error('You are not authenticated!');
+            const err = new Error('You are not authenticated!');
             err.status = 401;
             next(err);
         }
@@ -45,7 +45,7 @@ function auth (req, res, next) {
             next();
         }
         else {
-            var err = new Error('You are not authenticated!');
+            const err = new Error('You are not authenticated!');
             err.status = 401;
             next(err);
         }

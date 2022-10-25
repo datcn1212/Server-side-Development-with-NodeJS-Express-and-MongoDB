@@ -1,9 +1,9 @@
-var express = require('express');
-var dishRouter  = express.Router();
+const express = require('express');
+const dishRouter  = express.Router();
 
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-var Dishes = require('../models/dishes');
+const Dishes = require('../models/dishes');
 
 dishRouter.route('/')
 .get(function(req,res,next){
@@ -21,7 +21,7 @@ dishRouter.route('/')
     Dishes.create(req.body, function (err, dish) {
         if (err) throw err;
         console.log('Dish created!');
-        var id = dish._id;
+        const id = dish._id;
 
         res.writeHead(200, {
             'Content-Type': 'text/plain'

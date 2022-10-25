@@ -1,20 +1,21 @@
-var express = require('express');
-var path = require('path');
-// var logger = require('morgan');
-var bodyParser = require('body-parser');
+const express = require('express');
+const path = require('path');
+// const logger = require('morgan');
+const bodyParser = require('body-parser');
 
-var hostname = 'localhost';
-var port = 3000;
+const hostname = 'localhost';
+const port = 3000;
 
-var dishRouter = require('./dishRouter');
-var leaderRouter = require('./leaderRouter');
-var promoRouter = require('./promoRouter');
+const dishRouter = require('./dishRouter');
+const leaderRouter = require('./leaderRouter');
+const promoRouter = require('./promoRouter');
 
-var app = express();
+const app = express();
 
 app.set('view engine', 'hbs');
 
-app.use(logger('dev'));
+// app.use(logger('dev'));
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -26,7 +27,7 @@ app.use('/promotions', promoRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
-    var err = new Error('Not Found');
+    const err = new Error('Not Found');
     err.status = 404;
     next(err);
 });

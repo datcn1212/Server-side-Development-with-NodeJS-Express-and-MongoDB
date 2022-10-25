@@ -1,7 +1,7 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-var leadershipSchema = new Schema({
+const leadershipSchema = new Schema({
     name: {
         type: String,
         required: true,
@@ -28,6 +28,6 @@ var leadershipSchema = new Schema({
 });
 
 
-var leaderships = mongoose.model('leadership', leadershipSchema);
+const leaderships = mongoose.model('leadership', leadershipSchema);
 
 module.exports = leaderships;

@@ -1,9 +1,9 @@
-var express = require('express');
-var leaderRouter  = express.Router();
+const express = require('express');
+const leaderRouter  = express.Router();
 
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-var leaders = require('../models/leadership');
+const leaders = require('../models/leadership');
 
 leaderRouter.route('/')
 .get(function(req,res,next){
@@ -21,7 +21,7 @@ leaderRouter.route('/')
     leaders.create(req.body, function (err, leader) {
         if (err) throw err;
         console.log('leader created!');
-        var id = leader._id;
+        const id = leader._id;
 
         res.writeHead(200, {
             'Content-Type': 'text/plain'

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+
+<html lang="vi">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="CND">
+<head>
+
+    <!-- <style>
+        body {background-color: rgb(228, 230, 176);}
+        h1   {color: blue;}
+        p    {color: rgba(7, 75, 16, 0.434);}
+    </style> -->
+
+    <link rel="stylesheet" href="styles.css">
+
+    <title>
+        The Web
+    </title>
+
+    <link rel="icon" type="image/x-icon" href="https://www.jquery-az.com/html/images/strawberries.jpg">
+
+</head>
+
+<body>
+
+    <h1>
+        Table of content: (click to pass)<br>
+        <a style = "color:red; font-size:15pt" href = "#C1"><i>Chap 1</i></a><br>
+        <a style = "color:rgb(154, 154, 10); font-size:15pt" href = "#C2">Chap 2</a><br>
+        <a style = "color:blueviolet; font-size:15pt" href = "#C3">Chap 3</a><br>
+        <a style = "color:rgb(88, 53, 6); font-size:15pt" href = "#C4">Chap 4</a><br>
+    </h1>
+
+    <h1 id="C1">
+        Heading
+    </h1>
+    <p title='Title "of" paragraph'>
+        <b>Move your mouse in this paragraph to show title of this paragraph!</b>
+        <i>Text with some format</i>
+        <u>Format</u>
+        <br>
+        <strong>Important text with tag "strong"</strong><br>
+
+        <small>Smaller Text with tag "small"</small><br>
+
+        <del>Deleted text with tag "del"</del><br>
+
+        <ins>Inserted text with tag "ins"</ins><br>
+
+        Mark text with tag <mark>"mark"</mark><br>
+
+        <br>
+        <a href="https://www.w3schools.com" target="_blank"> Click here! </a>
+    </p>
+
+    <p style = "background-image: url('https://www.jquery-az.com/html/images/banana.jpg'); height: 200pt">
+        This is a text above an image
+    </p>
+
+    <a href="mailto:canada2k1@gmail.com" target="_blank">Send email</a>
+
+    <button onclick="document.location='https://www.w3schools.com/html/'">HTML Tutorial</button>
+
+    <p style="color:rgb(0, 255, 47);">This is a red paragraph.</p>
+    <a href="https://www.youtube.com/results?search_query=angular+"> Click angular! </a>
+    <br>
+    <img src="image/rocket.png" alt="copy image" height=50% class="center">
+    <!-- This is a comment -->
+
+    <p>My mother has <span style="color:blue;font-weight:bold;">blue</span> eyes 
+    and my father has <span style="color:darkolivegreen;font-weight:bold;">dark green</span> eyes.</p>
+
+    <hr>
+    <!--This is a thematic break - Horizontal Rules -->
+
+    <h1 id="C2" style="font-size:25px;"> Heading with fixed size</h1>
+    <p style="background-color:tomato; font-family:verdana;">This is a paragraph with fixed font and color.</p>
+    <p style="color: blue; text-align:center;">The pre tag preserves both spaces and line breaks:</p>
+
+    <pre>
+        My Bonnie lies over the ocean.
+
+        My Bonnie lies over the sea.
+
+        My Bonnie lies over the ocean.
+        
+        Oh, bring back my Bonnie to me.
+
+        <code>
+        Here is some code with tag "code"
+        int x = 2;
+        cout << x;
+        </code>
+        <const>constiable</const>
+
+        </pre>
+
+        <table style="width: 100%">
+            <tr>
+                <th>A</th>
+                <th>B</th>
+                <th>C</th>
+            </tr>
+            <tr>
+                <td>Company</td>
+                <td>Contact</td>
+                <td>Country</td>
+            </tr>
+            <tr>
+                <td>Alfreds Futterkiste</td>
+                <td>Maria Anders</td>
+                <td>Germany</td>
+            </tr>
+            <tr>
+                <td>Centro comercial Moctezuma</td>
+                <td>Francisco Chang</td>
+                <td>Mexico</td>
+            </tr>
+        </table>
+
+    <hr>
+    <h1 id = "C3" style="color:Violet;font-size:28; background-color: DodgerBlue">Heading 3</h1>
+
+    <blockquote>
+        <i>"For nearly 60 years, WWF has been protecting the future of nature. 
+        The world's leading conservation organization, WWF works in 100 countries and is 
+        supported by more than one million members in the United States and close to five million globally."</i>
+    </blockquote>
+
+    <q style="border:2px solid DodgerBlue;">Short Quote with tag &lt;q&gt;. Let's see the quotation marks</q> 
+    <br><br>
+
+    <div id = "test">
+        Test for getElementById
+    </div><br>
+
+    <button onclick="displayResult()" style="border:1px solid black;
+    border-radius: 10px;font-size:12pt; color:red; background-color:rgb(234, 187, 222)">
+    <b>Change text button</b>
+    </button>
+
+    <script>
+        function displayResult(){
+            if(document.getElementById("test").innerHTML=="Test for getElementById") 
+            document.getElementById("test").innerHTML= "Text changed!"
+            else
+            document.getElementById("test").innerHTML= "Test for getElementById"
+        }
+    </script>
+
+    <hr>
+    <h1 id = "C4">Heading 4 - CSS: Cascading Style Sheets</h1>
+
+    <ul>
+        <li><strong>Inline</strong> - by using the <code class="w3-codespan">style</code> attribute inside HTML elements</li>
+        <li><strong>Internal</strong> - by using a <code class="w3-codespan">&lt;style&gt;</code> element in the <code class="w3-codespan">&lt;head&gt;</code> section</li>
+        <li><strong>External</strong> - by using a <code class="w3-codespan">&lt;link&gt;</code> 
+        element to link to an external CSS file</li>
+    </ul>
+
+    <p id = "time"></p>
+    <button onclick="document.getElementById('time').innerHTML = Date()">Click to show time</button>
+    <button onclick="document.getElementById('time').innerHTML = ''">Click to hide time</button>
+    <script>
+        function showTime(){
+            document.getElementById("time").innerHTML = "something";
+        }
+    </script>
+
+    <!-- <img src = image/rocket.png alt = "Rocket"> -->
+
+    <h1>
+        Test Frame
+    </h1>
+    <iframe src="demo_iframe.html" style="border:2px solid red;" width = 100% title="Iframe Example"></iframe>
+
+</body>
+
+</html>

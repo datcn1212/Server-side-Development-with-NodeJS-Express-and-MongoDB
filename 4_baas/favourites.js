@@ -1,7 +1,7 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-var favoriteSchema = new Schema({
+const favoriteSchema = new Schema({
     postedBy: {
         required: true
         ,type: mongoose.Schema.Types.ObjectId
@@ -14,6 +14,6 @@ var favoriteSchema = new Schema({
 }                           
 ); 
 
-var Favorites = mongoose.model('Favorite', favoriteSchema);
+const Favorites = mongoose.model('Favorite', favoriteSchema);
 
 module.exports = Favorites;

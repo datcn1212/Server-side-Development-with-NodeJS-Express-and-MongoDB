@@ -1,5 +1,5 @@
-var express = require('express');
-var leaderRouter = express.Router();
+const express = require('express');
+const leaderRouter = express.Router();
 
 leaderRouter.route('/')
         .all(function (req, res, next) {

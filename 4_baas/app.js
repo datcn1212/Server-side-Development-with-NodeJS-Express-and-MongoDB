@@ -1,29 +1,29 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var mongoose = require('mongoose');
-var passport= require('passport');
-var authenticate = require('./authenticate');
+const express = require('express');
+const path = require('path');
+const favicon = require('serve-favicon');
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const passport= require('passport');
+const authenticate = require('./authenticate');
 
-var config = require('./config');
+const config = require('./config');
 
-var db= mongoose.connection;
+const db= mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function(){
     console.log("Connected successfully to server.")
 })
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
-var dishRouter = require('./routes/dishRouter');
-var promoRouter = require('./routes/promoRouter');
-var leaderRouter = require('./routes/leaderRouter');
-var favoriteRouter = require('./routes/favoriteRouter');
+const routes = require('./routes/index');
+const users = require('./routes/users');
+const dishRouter = require('./routes/dishRouter');
+const promoRouter = require('./routes/promoRouter');
+const leaderRouter = require('./routes/leaderRouter');
+const favoriteRouter = require('./routes/favoriteRouter');
 
-var app = express();
+const app = express();
 
 app.all('*', function(req, res, next){
     if (req.secure){
@@ -55,7 +55,7 @@ app.use('/favorites', favoriteRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  var err = new Error('Not Found');
+  const err = new Error('Not Found');
   err.status = 404;
   next(err);
 });

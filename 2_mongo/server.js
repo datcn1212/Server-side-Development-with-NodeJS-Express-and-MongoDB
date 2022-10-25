@@ -1,11 +1,11 @@
-var mongoose = require('mongoose'),
+const mongoose = require('mongoose'),
     assert = require('assert');
 
-var Dishes = require('./models/dishes-3');
+const Dishes = require('./models/dishes-3');
 
 // Connection URL
-var url = 'mongodb://localhost:27017/conFusion';mongoose.connect(url);
-var db = mongoose.connection;
+const url = 'mongodb://localhost:27017/conFusion';mongoose.connect(url);
+const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function () {
     // we're connected!
@@ -27,7 +27,7 @@ db.once('open', function () {
         console.log('Dish created!');
         console.log(dish);
 
-        var id = dish._id;
+        const id = dish._id;
 
         // get all the dishes
         setTimeout(function () {

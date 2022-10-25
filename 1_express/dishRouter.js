@@ -1,5 +1,6 @@
-var express = require('express');
-var dishRouter = express.Router();
+const express = require('express');
+// const html = require('./public/index.html')
+const dishRouter = express.Router();
 
 dishRouter.route('/')
         .all(function (req, res, next) {
@@ -8,6 +9,7 @@ dishRouter.route('/')
         })
 
         .get(function (req, res, next) {
+                res.sendFile(path.join(__dirname + '/index.html'));
                 res.end('Will send all the dishes to you!');
         })
 

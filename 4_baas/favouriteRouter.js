@@ -1,12 +1,12 @@
-var express = require('express');
-var bodyParser = require('body-parser');
-var mongoose = require('mongoose');
+const express = require('express');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
-var Favorite = require('../models/favorite');
-var Dish = require('../models/dishes');
-var verify = require('./verify');
+const Favorite = require('../models/favorite');
+const Dish = require('../models/dishes');
+const verify = require('./verify');
 
-var favoriteRouter = express.Router();
+const favoriteRouter = express.Router();
 favoriteRouter.use(bodyParser.json());
 
 favoriteRouter.route('/')
@@ -29,9 +29,9 @@ favoriteRouter.route('/')
                 req.body.postedBy = req.decoded._doc._id;
 
                 if (favorites.length) {
-                    var favoriteAlreadyExist = false;
+                    const favoriteAlreadyExist = false;
                     if (favorites[0].dishes.length) {
-                        for (var i = (favorites[0].dishes.length - 1); i >= 0; i--) {
+                        for (const i = (favorites[0].dishes.length - 1); i >= 0; i--) {
                             favoriteAlreadyExist = favorites[0].dishes[i] == req.body._id;
                             if (favoriteAlreadyExist) break;
                         }
@@ -77,10 +77,10 @@ favoriteRouter.route('/:dishId')
 
         Favorite.find({'postedBy': req.decoded._doc._id}, function (err, favorites) {
             if (err) return err;
-            var favorite = favorites ? favorites[0] : null;
+            const favorite = favorites ? favorites[0] : null;
 
             if (favorite) {
-                for (var i = (favorite.dishes.length - 1); i >= 0; i--) {
+                for (const i = (favorite.dishes.length - 1); i >= 0; i--) {
                     if (favorite.dishes[i] == req.params.dishId) {
                         favorite.dishes.remove(req.params.dishId);
                     }
